@@ -33,3 +33,14 @@ func TestArrayLoopThrough(t *testing.T) {
 		fmt.Printf("index: %d, value: %s\n", i, fruits[i])
 	}
 }
+
+func TestArrayMultiDimensional(t *testing.T) {
+	balances := [2][3]int{{1, 2, 3}, {4, 5, 6}}
+
+	for _, arr := range balances {
+		for _, v := range arr {
+			fmt.Printf("%d ", v)
+		}
+		fmt.Println()
+	}
+}
