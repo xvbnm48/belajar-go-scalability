@@ -1,6 +1,9 @@
 package session02
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 func TestIfElse(t *testing.T) {
 	var currentYear = 2024
@@ -37,5 +40,43 @@ func TestSwitcConditionhWithRelationalOperator(t *testing.T) {
 		t.Log("A")
 	default:
 		t.Log("Not Perfect")
+	}
+}
+
+func TestSwitchFallthrough(t *testing.T) {
+	score := 6
+	switch {
+	case score == 8:
+		fmt.Println("perfect")
+	case (score <= 8) && (score > 3):
+		fmt.Println("You are good")
+		fallthrough
+	case score < 5:
+		fmt.Println("You need to learn more")
+	default:
+		fmt.Println("You are not good")
+	}
+}
+
+func TestNestedCondition(t *testing.T) {
+	var score = 20
+	if score > 7 {
+		switch score {
+		case 10:
+			t.Log("Perfect")
+		default:
+			t.Log("Good")
+		}
+	} else {
+		if score == 5 {
+			t.Log("Not Bad")
+		} else if score == 3 {
+			t.Log("Bad")
+		} else {
+			t.Log("Very Bad")
+			if score == 0 {
+				t.Log("You are not good")
+			}
+		}
 	}
 }
