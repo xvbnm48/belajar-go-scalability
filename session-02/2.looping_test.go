@@ -54,3 +54,16 @@ func TestNestedLooping(t *testing.T) {
 		fmt.Println()
 	}
 }
+
+func TestNestedLoopingLabel(t *testing.T) {
+outerloop:
+	for i := 0; i < 5; i++ {
+		for j := i; j < 5; j++ {
+			if j == 3 {
+				break outerloop
+			}
+			fmt.Print(j, " ")
+		}
+		fmt.Println()
+	}
+}
