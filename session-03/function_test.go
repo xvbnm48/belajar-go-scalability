@@ -2,6 +2,7 @@ package session_03
 
 import (
 	"fmt"
+	"math"
 	"strings"
 	"testing"
 )
@@ -20,6 +21,19 @@ func greet(name, address string) {
 
 func greetReturn(msg string, names []string) string {
 	var joinStr = strings.Join(names, " ")
-	var result string = fmt.Sprintf("%s %s", msg, joinStr)
+	var result = fmt.Sprintf("%s %s", msg, joinStr)
 	return result
+}
+
+func TestFunctionMultipleReturn(t *testing.T) {
+	var diameter float64 = 15
+	var area, circumference = calculate(diameter)
+	fmt.Println("area: ", area)
+	fmt.Println("circumference: ", circumference)
+}
+
+func calculate(d float64) (area float64, circumference float64) {
+	area = math.Pi * math.Pow(d/2, 2)
+	circumference = math.Pi * d
+	return
 }
